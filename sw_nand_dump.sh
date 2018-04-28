@@ -1,5 +1,11 @@
 #!/bin/bash
-# Dump /dev/mmcblk1 using dcfldd or dd v1.0
+# Dump /dev/mmcblk1 using dcfldd or dd v2.0
+# 
+# ver2.0 
+# - Falcon FW extractor added
+# - biskeydump payload generator for fusee-launcher added
+# - minor fixes
+#
 # soul@kombos.org
 
 nandpath="/dev/mmcblk1p9"
