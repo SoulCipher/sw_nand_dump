@@ -1,5 +1,5 @@
 #!/bin/bash
-# Dump /dev/mmcblk1 using dcfldd or dd v2.0
+# Dump /dev/mmcblk1 using dcfldd or dd v2.1
 # 
 # ver2.0 
 # - Falcon FW extractor added
@@ -8,7 +8,7 @@
 #
 # soul@kombos.org
 
-nandpath="/dev/mmcblk1p9"
+nandpath="/dev/mmcblk1"
 boot0path="/dev/mmcblk1boot0"
 boot1path="/dev/mmcblk1boot1"
 payloads="/opt/sw_nand_dump/payloads"
@@ -27,7 +27,7 @@ echo
 if [ -e "$nandpath" ] && [ -e "$boot0path" ] && [ -e "$boot1path" ]; then
 
 echo -e "\033[1;37mChecking if your SD Card root partition can fit NAND backup:\033[0m"
-if [ "$free" -lt "12" ];
+if [ "$free" -lt "32" ];
 	then
 		echo -e "You only have \033[31m$free GB\033[0m free space. Sorry, at least \033[1;37m32 GB\033[0m is required"
 		echo
@@ -220,14 +220,4 @@ else
         echo -e "\033[31;7mError.\033[0m"
 	echo
 fi
-
-#grep -obarUP "\x4d\x00\x42\xcf" $1 | awk -F ":" '{ print $1 }' | while read OFFSET; do
-#        start=`echo $OFFSET`
-#        echo "FW Found at: $OFFSET"
-#        dd if=$1 of=tsecfw$i.bin bs=1 skip=$start count=3840
-#        convert2arr="$vim_parser -es '+:r !xxd -i tsecfw$i.bin' '+:2' '+:1,.d' '+:/};' '+:.,$d'  '+:wq! tsecfw$i.inl'"
-#        echo $convert2arr
-#        eval $convert2arr
-#        let i++
-#done
 
