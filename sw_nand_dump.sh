@@ -1,14 +1,15 @@
 #!/bin/bash
+#
+# ver2.3
+# - Fix nandpath issue.
+# - Fix payload path.
+#
 # Dump /dev/mmcblk1 using dcfldd or dd v2.2
 # 
 # ver2.0 
 # - Falcon FW extractor added
 # - biskeydump payload generator for fusee-launcher added
 # - minor fixes
-#
-# ver2.1
-# - Fix nandpath issue.
-# - Fix payload path.
 #
 # soul@kombos.org
 # ver2.1 fixes by GGLinnk
