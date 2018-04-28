@@ -1,5 +1,5 @@
 #!/bin/bash
-# Dump /dev/mmcblk1 using dcfldd or dd v2.1
+# Dump /dev/mmcblk1 using dcfldd or dd v2.2
 # 
 # ver2.0 
 # - Falcon FW extractor added
@@ -8,7 +8,7 @@
 #
 # soul@kombos.org
 
-nandpath="/dev/mmcblk1"
+nandpath="/dev/mmcblk1p1"
 boot0path="/dev/mmcblk1boot0"
 boot1path="/dev/mmcblk1boot1"
 payloads="/opt/sw_nand_dump/payloads"
@@ -27,7 +27,7 @@ echo
 if [ -e "$nandpath" ] && [ -e "$boot0path" ] && [ -e "$boot1path" ]; then
 
 echo -e "\033[1;37mChecking if your SD Card root partition can fit NAND backup:\033[0m"
-if [ "$free" -lt "32" ];
+if [ "$free" -lt "22" ];
 	then
 		echo -e "You only have \033[31m$free GB\033[0m free space. Sorry, at least \033[1;37m32 GB\033[0m is required"
 		echo
@@ -136,11 +136,21 @@ if [ "$free" -lt "32" ];
                         if [[ $REPLY =~ ^[Yy]$ ]];
                         then
 				echo
+
+ 				echo -e "\033[38;5;220m	"
+				echo -e "                                      ,O,						"
+				echo -e "			             ,OOO,						"
+				echo -e "			       'oooooOOOOOooooo'					"
+				echo -e "	  		         \`OOOOOOOOOOO\`					"
+				echo -e "			           \`OOOOOOO\`						"
+				echo -e "			           OOOO'OOOO						"
+				echo -e "			          OOO'   'OOO						"
+				echo -e "			         O'         'O						"
 				echo	
-				echo -e "  8 8          ,o.                                        ,o.          8 8  "
- 				echo -e "d8o8azzzzzzzzd    b      biskeydump v3 by rajkosto       d   bzzzzzzzza8o8b "
-				echo -e "               \`o'                                        \`o'	     "
-				echo -e "	            https://github.com/rajkosto/biskeydump		     "
+				echo -e "\033[38;5;220m  8 8          ,o.                                        ,o.          8 8  \033[0m"
+ 				echo -e "\033[38;5;220md8o8azzzzzzzzd    b\033[0m      \033[1;57mbiskeydump v3\033[0m by \033[31mrajkosto      \033[38;5;220m d   bzzzzzzzza8o8b \033[0m"
+				echo -e "\033[38;5;220m               \`o'                                        \`o'	     \033[0m"
+				echo -e "\033[38;5;220m	            https://github.com/rajkosto/biskeydump		     \033[0m"
 				echo
 				echo -e "\033[1;37mChecking if BOOT0 contain Falcon FW:\033[0m"
 				tsecfw_off=`grep -obarUP "\x4d\x00\x42\xcf" $HOME/SwitchBOOT0_dump_$timestamp.bin | awk -F ":" '{ print $1 }' | sed -n '1p'`
