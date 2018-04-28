@@ -6,12 +6,17 @@
 # - biskeydump payload generator for fusee-launcher added
 # - minor fixes
 #
+# ver2.1
+# - Fix nandpath issue.
+# - Fix payload path.
+#
 # soul@kombos.org
+# ver2.1 fixes by GGLinnk
 
-nandpath="/dev/mmcblk1p1"
+nandpath="/dev/mmcblk1"
 boot0path="/dev/mmcblk1boot0"
 boot1path="/dev/mmcblk1boot1"
-payloads="/opt/sw_nand_dump/payloads"
+payloads="./payloads"
 dd=`command -v dd`
 free=`df -H --type=ext4 | grep root | awk '{ print $4 }' | sed -e 's/G//'`
 timestamp="$(date +%Y%m%d_%H%M%S)"
