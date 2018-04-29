@@ -1,4 +1,9 @@
 #!/bin/bash
+#
+# ver2.3
+# - Fix nandpath issue.
+# - Fix payload path.
+#
 # Dump /dev/mmcblk1 using dcfldd or dd v2.2
 # 
 # ver2.0 
@@ -7,11 +12,12 @@
 # - minor fixes
 #
 # soul@kombos.org
+# ver2.1 fixes by GGLinnk
 
 nandpath="/dev/mmcblk1"
 boot0path="/dev/mmcblk1boot0"
 boot1path="/dev/mmcblk1boot1"
-payloads="/opt/sw_nand_dump/payloads"
+payloads="./payloads"
 dd=`command -v dd`
 free=`df -H --type=ext4 | grep root | awk '{ print $4 }' | sed -e 's/G//'`
 timestamp="$(date +%Y%m%d_%H%M%S)"
