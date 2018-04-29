@@ -2,9 +2,8 @@
 Switch Linux NAND Dumper helper
 
 ## Prerequisites
-Install cksfv package if you want to dump your bis key.<br>
-Under archlinux : `sudo pacman -S cksfv`<br>
-Under debian based OS (Ubuntu) : `sudo apt-get install cksfv`
+Under archlinux : `sudo pacman -S cksfv dcfldd`<br>
+Under debian based OS (Ubuntu) : `sudo apt-get install cksfv dcfldd`
 
 ## Credits
 SoulCipher (soul@kombos.org)
