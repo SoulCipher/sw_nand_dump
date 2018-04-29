@@ -8,7 +8,7 @@
 #
 # soul@kombos.org
 
-nandpath="/dev/mmcblk1p1"
+nandpath="/dev/mmcblk1"
 boot0path="/dev/mmcblk1boot0"
 boot1path="/dev/mmcblk1boot1"
 payloads="/opt/sw_nand_dump/payloads"
